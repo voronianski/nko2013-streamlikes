@@ -7,6 +7,7 @@ var express = require('express');
 var path = require('path');
 var http = require('http');
 var swig = require('swig');
+var config = require('./config');
 var router = require('./source/router');
 
 var app = module.exports = express();
@@ -43,5 +44,5 @@ http.createServer(app).listen(port, function (err) {
 		});
 	}
 
-	console.log('Server running at http://0.0.0.0:' + port + '/');
+	console.log('Server running at http://0.0.0.0:' + port + '/ with mongodb connectected at ' + config.mongo.connection);
 });
