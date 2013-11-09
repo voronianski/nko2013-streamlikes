@@ -6,6 +6,7 @@ module.exports = function (app) {
 	app.all('/api/*', middleware.checkAPIAuth);
 	app.get('/api/users/me', getUser);
 	app.get('/api/music/facebook', fetchFacebookMusic);
+	app.get('/api/music/stream');
 
 	function getUser (req, res) {
 		users.findById(req.user._id, function (err, user) {
