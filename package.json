@@ -17,7 +17,8 @@
     "swig": "~1.1.0",
     "passport-facebook": "~1.0.2",
     "mongojs": "~0.9.6",
-    "underscore": "~1.5.2"
+    "underscore": "~1.5.2",
+    "request": "~2.27.0"
   },
   "engines": {
     "node": "0.10.x"
