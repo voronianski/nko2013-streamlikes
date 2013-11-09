@@ -1,7 +1,9 @@
+var middleware = require('./middleware');
 var users = require('./models/users');
 var music = require('./models/music');
 
 module.exports = function (app) {
+	app.all('/api/*', middleware.checkAPIAuth);
 	app.get('/api/users/me', getUser);
 	app.get('/api/music/facebook', fetchFacebookMusic);
 

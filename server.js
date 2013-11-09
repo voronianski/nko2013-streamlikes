@@ -25,7 +25,7 @@ app.configure(function () {
 	app.set('views', __dirname + '/views');
 	app.set('view engine', 'html');
 	app.use(express.logger('short'));
-	app.use(express.cookieParser());
+	app.use(express.cookieParser('nko tracks shuffles'));
 	app.use(express.json());
 	app.use(express.urlencoded());
 	app.use(express.methodOverride());
@@ -37,8 +37,8 @@ app.configure(function () {
 	app.use(middleware.handleErrors());
 });
 
-api(app);
 router(app, passport);
+api(app);
 
 http.createServer(app).listen(port, function (err) {
 	if (err) {
