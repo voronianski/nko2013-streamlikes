@@ -1,10 +1,11 @@
 // User registration and authorization
+
 var config = require('../config');
 var services = config.services;
 var users = require('./models/users');
 var FacebookAuth = require('passport-facebook').Strategy;
 
-exports.init = function (passport) {
+exports.initialize = function (passport) {
 	passport.serializeUser(function (user, done) {
 		done(null, user);
 	});

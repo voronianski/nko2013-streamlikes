@@ -1,5 +1,5 @@
 module.exports = {
-	url: 'http://0.0.0.0:8000/',
+	url: 'http://0.0.0.0:8000',
 	mongo: {
 		connection: 'mongodb://localhost:27017/nkotracks',
 		collections: ['users'],
@@ -7,8 +7,8 @@ module.exports = {
 	},
 	services: {
 		facebook: {
-			appID: '732610503419963',
-			appSecret: '75a62db88fc24f483ff3ea94fa45c56a'
+			appID: '586399898092997',
+			appSecret: '486bfb8a132799ae9d3140f261b669d7'
 		},
 		shuffler: {
 			appKey: 'b3rsurohdv',

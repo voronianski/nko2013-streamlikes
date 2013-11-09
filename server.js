@@ -12,8 +12,8 @@ var config = require('./config');
 var auth = require('./source/auth');
 var router = require('./source/router');
 
-// do passport initialization before app start
-auth.init(passport);
+// passport initialization before app start
+auth.initialize(passport);
 
 var app = module.exports = express();
 
@@ -23,15 +23,18 @@ app.configure(function () {
 	app.set('views', __dirname + '/views');
 	app.set('view engine', 'html');
 	app.use(express.logger('short'));
+	app.use(express.cookieParser());
 	app.use(express.json());
 	app.use(express.urlencoded());
 	app.use(express.methodOverride());
-	app.use(express.cookieParser());
+	app.use(express.session({ secret: 'nko tracks stream' }));
+	app.use(passport.initialize());
+	app.use(passport.session());
 	app.use(app.router);
 	app.use(express.static(path.join(__dirname, 'public')));
 });
 
-router(app);
+router(app, passport);
 
 http.createServer(app).listen(port, function (err) {
 	if (err) {
