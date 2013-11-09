@@ -10,6 +10,7 @@ var swig = require('swig');
 var passport = require('passport');
 var config = require('./config');
 var auth = require('./source/auth');
+var api = require('./source/api');
 var router = require('./source/router');
 var middleware = require('./source/middleware');
 
@@ -36,6 +37,7 @@ app.configure(function () {
 	app.use(middleware.handleErrors());
 });
 
+api(app);
 router(app, passport);
 
 http.createServer(app).listen(port, function (err) {
