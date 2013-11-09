@@ -1,9 +1,8 @@
 module.exports = {
 	url: 'http://kosmetika.2013.nodeknockout.com',
 	mongo: {
-		connection: 'mongodb://ksmtk:hjvtj99@paulo.mongohq.com:10073/nkotracks',
-		collections: ['users'],
-		options: { auto_reconnect: true }
+		connection: 'mongodb://ksmtk:hjvtj99@paulo.mongohq.com:10073/nkotracks?auto_reconnect=true',
+		collections: ['users']
 	},
 	services: {
 		facebook: {

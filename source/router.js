@@ -13,6 +13,6 @@ module.exports = function (app, passport) {
 	}
 
 	function serveRadioApp (req, res) {
-		res.render('app', { username: req.user.__wrapped__.username });
+		res.render('app', { username: req.user.username });
 	}
 };

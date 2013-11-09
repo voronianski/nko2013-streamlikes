@@ -6,12 +6,12 @@ var users = require('./models/users');
 var FacebookAuth = require('passport-facebook').Strategy;
 
 exports.initialize = function (passport) {
-	passport.serializeUser(function (user, done) {
-		done(null, user);
+	passport.serializeUser(function (doc, done) {
+		done(null, doc.__wrapped__);
 	});
 
-	passport.deserializeUser(function (obj, done) {
-		done(null, obj);
+	passport.deserializeUser(function (user, done) {
+		done(null, user);
 	});
 
 	passport.use(new FacebookAuth({
