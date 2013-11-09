@@ -1,6 +1,15 @@
 var _ = require('underscore');
 var util = require('util');
 var db = require('../dbconnector').db;
+var ObjectId = require('mongojs').ObjectId;
+
+exports.findById = function (id, callback) {
+	if (typeof id === 'string') {
+		id = new ObjectId(id);
+	}
+
+	db.users.findOne({ _id: id }, callback);
+};
 
 exports.findOrCreateUser = function (token, tokenSecret, profile, callback) {
 	db.users.findOne({ id: profile.id, provider: profile.provider }, function (err, user) {
@@ -16,7 +25,6 @@ exports.findOrCreateUser = function (token, tokenSecret, profile, callback) {
 
 		doc = _(doc).extend({
 			token: token,
-			tokenSecret: tokenSecret,
 			avatar: util.format('https://graph.facebook.com/%s/picture', profile.id),
 			registered: new Date()
 		});

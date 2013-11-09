@@ -1,5 +1,6 @@
 module.exports = {
 	url: 'http://0.0.0.0:8000',
+	userAgent: 'nkotracks-dev',
 	mongo: {
 		connection: 'mongodb://localhost:27017/nkotracks?auto_reconnect=true',
 		collections: ['users', 'music']
