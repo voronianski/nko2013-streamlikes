@@ -1,4 +1,5 @@
 module.exports = {
+	url: 'http://kosmetika.2013.nodeknockout.com/',
 	mongo: {
 		connection: 'mongodb://ksmtk:hjvtj99@paulo.mongohq.com:10073/nkotracks',
 		collections: ['users'],

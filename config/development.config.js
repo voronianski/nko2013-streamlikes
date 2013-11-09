@@ -1,4 +1,5 @@
 module.exports = {
+	url: 'http://0.0.0.0:8000/',
 	mongo: {
 		connection: 'mongodb://localhost:27017/nkotracks',
 		collections: ['users'],

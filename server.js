@@ -7,8 +7,13 @@ var express = require('express');
 var path = require('path');
 var http = require('http');
 var swig = require('swig');
+var passport = require('passport');
 var config = require('./config');
+var auth = require('./source/auth');
 var router = require('./source/router');
+
+// do passport initialization before app start
+auth.init(passport);
 
 var app = module.exports = express();
 
