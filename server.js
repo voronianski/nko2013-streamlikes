@@ -2,10 +2,12 @@
 require('nko')('mGKQ1JbxwdQI-AO2');
 
 var isProduction = (process.env.NODE_ENV === 'production');
+var port = (isProduction ? 80 : 8000);
 var express = require('express');
+var path = require('path');
 var http = require('http');
 var swig = require('swig');
-var port = (isProduction ? 80 : 8000);
+var router = require('./source/router');
 
 var app = module.exports = express();
 
@@ -19,10 +21,11 @@ app.configure(function () {
 	app.use(express.urlencoded());
 	app.use(express.methodOverride());
 	app.use(express.cookieParser());
-	app.use(express.session());
 	app.use(app.router);
 	app.use(express.static(path.join(__dirname, 'public')));
 });
+
+router(app);
 
 http.createServer(app).listen(port, function (err) {
 	if (err) {
