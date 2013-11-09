@@ -8,7 +8,7 @@ module.exports = function (app, passport) {
 
 	app.get('/auth/facebook', passport.authenticate('facebook'));
 	app.get('/auth/facebook/callback', passport.authenticate('facebook', { failureRedirect: '/', successReturnToOrRedirect: '/stream' }));
-	//app.get('/logout', logout);
+	app.get('/logout', logout);
 
 	function serveHomepage (req, res) {
 		res.render('homepage');
@@ -16,5 +16,10 @@ module.exports = function (app, passport) {
 
 	function serveStreamApp (req, res) {
 		res.render('app');
+	}
+
+	function logout (req, res) {
+		req.logout();
+		res.redirect('/');
 	}
 };
