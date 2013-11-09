@@ -4,7 +4,7 @@ var middleware = require('./middleware');
 
 module.exports = function (app, passport) {
 	app.get('/', serveHomepage);
-	app.get('/stream', middleware.checkAuth, serveStreamApp);
+	app.get('/stream', middleware.checkStaticAuth, serveStreamApp);
 
 	app.get('/auth/facebook', passport.authenticate('facebook', { scope: 'user_likes' }));
 	app.get('/auth/facebook/callback', passport.authenticate('facebook', { failureRedirect: '/' }), login);
