@@ -42,14 +42,3 @@ http.createServer(app).listen(port, function (err) {
 
 	console.log('Server running at http://0.0.0.0:' + port + '/');
 });
-
-
-/*
-function (req, res) {
-	// http://blog.nodeknockout.com/post/35364532732/protip-add-the-vote-ko-badge-to-your-app
-	var voteko = '<iframe src="http://nodeknockout.com/iframe/kosmetika" frameborder=0 scrolling=no allowtransparency=true width=115 height=25></iframe>';
-
-	res.writeHead(200, {'Content-Type': 'text/html'});
-	res.end('<html><body><!--Shuffler-b3rsurohdv--> test commit2' + voteko + '</body></html>\n');
-}
-*/
