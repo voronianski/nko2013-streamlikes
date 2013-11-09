@@ -9,7 +9,7 @@ module.exports = function (app, passport) {
 	//app.get('/logout', logout);
 
 	function serveHomepage (req, res) {
-		res.render('base');
+		res.render('homepage');
 	}
 
 	function serveRadioApp (req, res) {

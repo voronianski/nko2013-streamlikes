@@ -1,9 +1,9 @@
-var _ = require('lodash');
+var _ = require('underscore');
 var util = require('util');
 var db = require('../dbconnector').db;
 
 exports.findOrCreateUser = function (token, tokenSecret, profile, callback) {
-	db.users.findOne({ '__wrapped__.id': profile.id, '__wrapped__.provider': profile.provider }, function (err, user) {
+	db.users.findOne({ id: profile.id, provider: profile.provider }, function (err, user) {
 		if (err) {
 			return callback(err);
 		}

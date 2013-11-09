@@ -1,14 +1,26 @@
 <!doctype html>
-<html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
 	<meta charset="utf-8">
-	<title>NKO Tracks radio</title>
+	<title>NKO Tracks Stream</title>
+
+	<link rel="shortcut icon" href="/images/favicon.png">
+	<link rel="stylesheet" href="/css/reset.css">
+
+	{% block styles %}
+	<link rel="stylesheet" href="/css/style.css">
+	{% endblock %}
 </head>
-<body>
+<body class="{% block body_class %}{% endblock %}">
 	<!--Shuffler-b3rsurohdv-->
-	<h1>Here will be super cool app! test deploy</h1>
-	<p><a href="/auth/facebook" title="">Login via Facebook</a></p>
+	{% block content %}
+	{% endblock %}
 
 	<iframe src="http://nodeknockout.com/iframe/kosmetika" frameborder=0 scrolling=no allowtransparency=true width=115 height=25></iframe>
+	{% block scripts %}
+	{% endblock %}
 </body>
 </html>
