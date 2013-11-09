@@ -1,9 +1,8 @@
 module.exports = {
 	url: 'http://0.0.0.0:8000',
 	mongo: {
-		connection: 'mongodb://localhost:27017/nkotracks',
-		collections: ['users'],
-		options: { auto_reconnect: true }
+		connection: 'mongodb://localhost:27017/nkotracks?auto_reconnect=true&auto_wrap=false',
+		collections: ['users']
 	},
 	services: {
 		facebook: {

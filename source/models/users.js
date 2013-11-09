@@ -21,7 +21,7 @@ exports.findOrCreateUser = function (token, tokenSecret, profile, callback) {
 			registered: new Date()
 		});
 
-		db.users.insert(doc, function (err, saved) {
+		db.users.save(doc, function (err, saved) {
 			return err ? callback(err) : callback(null, saved);
 		});
 	});
