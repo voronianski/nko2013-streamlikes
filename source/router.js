@@ -25,7 +25,7 @@ module.exports = function (app, passport) {
 
 	function logout (req, res) {
 		req.logout();
-		res.clearCookie(req.param('cookie'));
+		res.clearCookie('nkotracksid');
 		res.redirect('/');
 	}
 };

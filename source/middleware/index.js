@@ -1,5 +1,5 @@
 module.exports = {
-	checkAuth: require('./checkAuth'),
 	checkAPIAuth: require('./checkAPIAuth'),
+	checkStaticAuth: require('./checkStaticAuth'),
 	handleErrors: require('./handleErrors')
 };
