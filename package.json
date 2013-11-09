@@ -11,7 +11,10 @@
     "url": "git@github.com:nko4/kosmetika.git"
   },
   "dependencies": {
-    "nko": "*"
+    "nko": "*",
+    "express": "~3.4.4",
+    "passport": "~0.1.17",
+    "swig": "~1.1.0"
   },
   "engines": {
     "node": "0.10.x"
