@@ -1,8 +1,10 @@
 // Main static router and auth endpoints
 
+var middleware = require('./middleware');
+
 module.exports = function (app, passport) {
 	app.get('/', serveHomepage);
-	app.get('/stream', serveRadioApp);
+	app.get('/stream', middleware.checkAuth, serveStreamApp);
 
 	app.get('/auth/facebook', passport.authenticate('facebook'));
 	app.get('/auth/facebook/callback', passport.authenticate('facebook', { failureRedirect: '/', successReturnToOrRedirect: '/stream' }));
@@ -12,7 +14,7 @@ module.exports = function (app, passport) {
 		res.render('homepage');
 	}
 
-	function serveRadioApp (req, res) {
-		res.render('app', { username: req.user.username });
+	function serveStreamApp (req, res) {
+		res.render('app');
 	}
 };

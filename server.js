@@ -11,6 +11,7 @@ var passport = require('passport');
 var config = require('./config');
 var auth = require('./source/auth');
 var router = require('./source/router');
+var middleware = require('./source/middleware');
 
 // passport initialization before app start
 auth.initialize(passport);
@@ -32,6 +33,7 @@ app.configure(function () {
 	app.use(passport.session());
 	app.use(app.router);
 	app.use(express.static(path.join(__dirname, 'public')));
+	app.use(middleware.handleErrors());
 });
 
 router(app, passport);
