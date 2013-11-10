@@ -6,7 +6,7 @@ module.exports = function (app) {
 	app.all('/api/*', middleware.checkAPIAuth);
 	app.get('/api/users/me', getUser);
 	app.get('/api/music/facebook', fetchFacebookMusic);
-	//app.get('/api/music/stream');
+	app.get('/api/music/artists', fetchShufflerArtists);
 
 	function getUser (req, res) {
 		users.findById(req.user._id, function (err, user) {
@@ -17,6 +17,18 @@ module.exports = function (app) {
 	function fetchFacebookMusic (req, res) {
 		music.fetchFacebookMusic(req.user.id, req.user.token, function (err, artists) {
 			return err ? next(err) : res.json(artists);
+		});
+	}
+
+	function fetchShufflerArtists (req, res) {
+		music.fetchFacebookMusic(req.user.id, req.user.token, function (err, likes) {
+			if (err) {
+				return next(err);
+			}
+
+			music.fetchShufflerArtists(likes, function (err, artists) {
+				return err ? next(err) : res.json(artists);
+			});
 		});
 	}
 };
