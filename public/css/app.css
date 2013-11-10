@@ -1,6 +1,49 @@
 /* Stream app page */
 
 .app {
-	width: 650px;
-	margin: 120px auto;
+	width: 660px;
+	margin: 100px auto;
+}
+
+.artists-wrap {
+
+}
+
+.artists-wrap .artist {
+	color: #333;
+	background: #e67e22;
+	float: left;
+	width: 150px;
+	height: 150px;
+	position: relative;
+	margin: 15px 15px 0 0;
+}
+
+.artists-wrap .artist:nth-child(4n) {
+	margin-right: 0;
+}
+
+.artists-wrap .artist img {
+	width: 150px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
+
+.artists-wrap .artist span {
+	position: absolute;
+	z-index: 2;
+	color: #fff;
+	background: #252525;
+	padding: 2px 5px;
+	font-size: 12px;
+	text-transform: uppercase;
+	top: 2px;
+	left: 2px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 15px;
+	max-width: 136px;
+	white-space: nowrap;
 }

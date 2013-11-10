@@ -9,7 +9,7 @@ var db = require('../dbconnector').db;
 var headers = { 'Content-Type': 'application/json', 'User-Agent': config.userAgent };
 
 exports.fetchFacebookMusic = function (facebookId, token, callback) {
-	var uri = services.facebook.apiUrl + '/' + facebookId + '/likes?limit=100&access_token=' + token;
+	var uri = services.facebook.apiUrl + '/' + facebookId + '/likes?limit=500&access_token=' + token;
 
 	request.get({ uri: uri, headers: headers, json: true }, function (err, res, body) {
 		if (err) {
@@ -27,7 +27,7 @@ exports.fetchFacebookMusic = function (facebookId, token, callback) {
 exports.fetchShufflerArtists = function (artists, callback) {
 	var results = [];
 
-	async.each(artists, searchForShufllerArtist, returnTracks);
+	async.eachLimit(artists, 20, searchForShufllerArtist, returnTracks);
 
 	function searchForShufllerArtist (artist, next) {
 		var name = diacritics.remove(artist.name);
@@ -49,6 +49,7 @@ exports.fetchShufflerArtists = function (artists, callback) {
 	}
 
 	function returnTracks (err) {
-		return err ? callback(err) : callback(null, results);
+		var shuffledResults = _(results).shuffle();
+		return err ? callback(err) : callback(null, shuffledResults.slice(0,12));
 	}
 };

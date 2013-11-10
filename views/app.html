@@ -1,13 +1,18 @@
 {% extends 'base.html' %}
 
+{% block styles %}
+<link rel="stylesheet" href="/css/app.css">
+{% endblock %}
+
 {% block content %}
-	<div class="app">
+	<div class="app clearfix">
 		<div class="preloader">
-			<p>One moment.. we getting the data!</p>
+			<p>One moment.. we are getting your favorites!</p>
 		</div>
 	</div>
 {% endblock %}
 
 {% block scripts %}
+<script src="/components/audiojs/audiojs/audio.min.js"></script>
 <script src="/js/app.js"></script>
 {% endblock %}
