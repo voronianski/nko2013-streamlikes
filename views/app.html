@@ -10,10 +10,11 @@
 		<div class="preloader">
 			<p>One moment.. we are getting your favorites!</p>
 		</div>
+		<div class="track-player"><audio id="player" src="http://api.soundcloud.com/tracks/15367733/stream?client_id=0640e8b38ce7c1388025b13fdbbe9116" controls></audio></div>
 	</div>
 {% endblock %}
 
 {% block scripts %}
-<script src="/components/audiojs/audiojs/audio.min.js"></script>
+<script src="/components/mediaelement/build/mediaelement-and-player.min.js"></script>
 <script src="/js/app.js"></script>
 {% endblock %}

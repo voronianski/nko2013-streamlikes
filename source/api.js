@@ -7,6 +7,7 @@ module.exports = function (app) {
 	app.get('/api/users/me', getUser);
 	app.get('/api/music/facebook', fetchFacebookMusic);
 	app.get('/api/music/artists', fetchShufflerArtists);
+	app.get('/api/music/tracks/:id', fetchShufflerTracks);
 
 	function getUser (req, res) {
 		users.findById(req.user._id, function (err, user) {
@@ -29,6 +30,12 @@ module.exports = function (app) {
 			music.fetchShufflerArtists(likes, function (err, artists) {
 				return err ? next(err) : res.json(artists);
 			});
+		});
+	}
+
+	function fetchShufflerTracks (req, res) {
+		music.fetchShufflerTracks(req.param('id'), function (err, tracks) {
+			return err ? next(err) : res.json(tracks);
 		});
 	}
 };

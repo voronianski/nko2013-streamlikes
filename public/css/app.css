@@ -30,9 +30,6 @@
 	opacity: 0.8;
 }
 
-.artists-wrap {
-}
-
 .artists-wrap .artist {
 	color: #333;
 	background: #e67e22;
@@ -43,6 +40,10 @@
 	margin: 15px 15px 0 0;
 	overflow: hidden;
 	cursor: pointer;
+	-webkit-transition: all .3s ease-in-out;
+	-moz-transition: all .3s ease-in-out;
+	-ms-transition: all .3s ease-in-out;
+	transition: all .3s ease-in-out;
 }
 
 .artists-wrap .artist:nth-child(4n) {
@@ -104,7 +105,10 @@
 	text-transform: uppercase;
 }
 
+.artists-wrap .artist:hover {
+	opacity: 0.8;
+}
+
 .artists-wrap .artist:hover .player {
 	bottom: 2px;
 }
-

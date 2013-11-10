@@ -15,6 +15,10 @@ module.exports = {
 			apiUrl: 'https://api.shuffler.fm/v2',
 			appKey: 'b3rsurohdv',
 			appSecret: 'pgn1u9ih9jt1ley0wnxrbgmt1w657cglf4z9qa3qm'
+		},
+		soundcloud: {
+			clientID: 'dfd2be07b76c588dfe2fa8ebdcd0fece',
+			clientSecret: '15326cbdd2261fa05d84c1f4215ae06b'
 		}
 	}
 };
