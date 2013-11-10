@@ -5,8 +5,32 @@
 	margin: 100px auto;
 }
 
-.artists-wrap {
+.line-logo {
+	display: block;
+	color: #fff;
+	font: 24px 'Montserrat Alternates', 'Helvetica Neue', sans-serif;
+	text-decoration: none;
+	position: absolute;
+	top: 30px;
+	left: 35px;
+}
 
+.line-logo img,
+.line-logo span {
+	display: inline-block;
+}
+
+.line-logo span {
+	margin-left: 5px;
+	vertical-align: top;
+	line-height: 24px;
+}
+
+.line-logo:hover {
+	opacity: 0.8;
+}
+
+.artists-wrap {
 }
 
 .artists-wrap .artist {

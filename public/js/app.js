@@ -32,7 +32,7 @@ streamLikes.app = {
 	},
 
 	startProgress: function () {
-
+		this.$el.find('.preloader').show();
 	},
 
 	stopProgress: function () {
