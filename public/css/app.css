@@ -3,6 +3,7 @@
 .app {
 	width: 660px;
 	margin: 100px auto;
+	position: relative;
 }
 
 .line-logo {
@@ -109,6 +110,51 @@
 	opacity: 0.8;
 }
 
-.artists-wrap .artist:hover .player {
+.artists-wrap .artist:hover .player,
+.artists-wrap .artist.playing .player {
 	bottom: 2px;
+}
+
+.track-player {
+	font-size: 16px;
+	font-weight: bold;
+	position: absolute;
+	top: -20px;
+	left: 0;
+	width: 645px;
+	height: 22px;
+	text-align: center;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.preloader {
+	position: absolute;
+	top: -130px;
+	left: 50%;
+	margin-left: -160px;
+	text-transform: uppercase;
+	font-weight: bold;
+	border-bottom: 1px dotted #fff;
+	padding-bottom: 5px;
+	-webkit-transition: all .3s ease-in-out;
+	-moz-transition: all .3s ease-in-out;
+	-ms-transition: all .3s ease-in-out;
+	transition: all .3s ease-in-out;
+}
+
+.preloader.show {
+	top: 33px;
+}
+
+.preloader-overlay {
+	position: absolute;
+	background: #222;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 100;
+	opacity: 0;
 }

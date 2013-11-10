@@ -81,6 +81,10 @@ a img {
 	display: none;
 }
 
+.novisible {
+	visibility: hidden;
+}
+
 .clearfix {
 	display: block;
 }

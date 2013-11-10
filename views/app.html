@@ -7,11 +7,14 @@
 {% block content %}
 	<a href="/" class="line-logo"><img src="/images/melody-white.png" width="24"><span>streamlikes</span></a>
 	<div class="app clearfix">
-		<div class="preloader">
-			<p>One moment.. we are getting your favorites!</p>
+		<div class="track-player">
+			<div class="track-info"></div>
+			<audio id="player" class="novisible" src=""></audio>
 		</div>
-		<div class="track-player"><audio id="player" src="http://api.soundcloud.com/tracks/15367733/stream?client_id=0640e8b38ce7c1388025b13fdbbe9116" controls></audio></div>
 	</div>
+
+	<div class="preloader show">Just a moment.. we are getting your streams!</div>
+	<div class="preloader-overlay"></div>
 {% endblock %}
 
 {% block scripts %}
