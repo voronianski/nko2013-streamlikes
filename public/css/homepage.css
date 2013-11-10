@@ -1,16 +1,7 @@
 body {
-	color: #fff;
-	background: url('../images/bg.png') #252525;
+	background-image: url('../images/bg.png');
 	background-size: 1440px;
 	overflow: hidden;
-}
-
-::selection {
-	background-color: #e67e22;
-}
-
-::-moz-selection {
-	background-color: #e67e22;
 }
 
 .wrapper {

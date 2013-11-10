@@ -116,7 +116,17 @@ a img {
 	-webkit-font-smoothing: antialiased;
 }
 
+::selection {
+	background-color: #e67e22;
+}
+
+::-moz-selection {
+	background-color: #e67e22;
+}
+
 body {
+	color: #fff;
+	background-color: #252525;
 	font: 14px 'Source Sans Pro', 'Helvetica Neue', sans-serif;
 }
 
