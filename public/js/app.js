@@ -27,7 +27,8 @@ streamLikes.app = {
 				'data-id="' + artist.id + '"' +
 				'data-channel="' + artist.channel_url + '">' +
 				'<img src="' + image + '">' +
-				'<span>' + artist.name + '</span></li>').appendTo($list);
+				'<span class="name">' + artist.name + '</span>' +
+				'<div class="player"><i data-icon="a" class="icon"></i><span>Play</span></div></li>').appendTo($list);
 		});
 	},
 
