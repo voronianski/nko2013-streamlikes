@@ -1,6 +1,7 @@
 var _ = require('underscore');
 var request = require('request');
 var async = require('async');
+var diacritics = require('diacritics');
 var config = require('../../config');
 var services = config.services;
 var db = require('../dbconnector').db;
@@ -29,22 +30,21 @@ exports.fetchShufflerArtists = function (artists, callback) {
 	async.eachSeries(artists, searchForShufllerArtist, returnTracks);
 
 	function searchForShufllerArtist (artist, next) {
-		var name = artist.name.replace(/é/g, 'e');
+		var name = diacritics.remove(artist.name);
 		var uri = services.shuffler.apiUrl + '/artists?q=' + name + '&app-key=' + services.shuffler.appKey;
-		console.dir(uri);
+
 		request.get({ uri: uri, headers: headers, json: true }, function (err, res, body) {
 			if (err) {
 				return next(err);
 			}
 
-			console.dir(body);
-			var choice = _(body[0]).pick(['name', 'permalink', 'channel_url', 'images', 'urls']);
+			var choice = _(body[0]).pick(['id', 'name', 'permalink', 'channel_url', 'images', 'urls']);
 			results.push(choice);
-			return next(null, results);
+			return next(null);
 		});
 	}
 
 	function returnTracks (err) {
-		return err ? callback(err) : callback(null, tracks);
+		return err ? callback(err) : callback(null, results);
 	}
 };
