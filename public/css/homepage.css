@@ -1,8 +1,4 @@
-body {
-	background-image: url('../images/bg.png');
-	background-size: 1440px;
-	overflow: hidden;
-}
+/* Homepage */
 
 .wrapper {
 	width: 450px;
