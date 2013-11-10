@@ -116,6 +116,10 @@ a img {
 	-webkit-font-smoothing: antialiased;
 }
 
+body {
+	font: 14px 'Source Sans Pro', 'Helvetica Neue', sans-serif;
+}
+
 a {
 	-webkit-transition: all .3s ease-in;
 	-moz-transition: all .3s ease-in;
