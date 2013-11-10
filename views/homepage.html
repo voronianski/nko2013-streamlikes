@@ -1,6 +1,17 @@
 {% extends 'base.html' %}
 
+{% block styles %}
+<link rel="stylesheet" href="/css/homepage.css">
+{% endblock %}
+
 {% block content %}
-	<h1>User stream radio, test</h1>
-	<p><a href="/auth/facebook" title="">Login via Facebook</a></p>
+	<div class="wrapper">
+		<div class="logo-wrap">
+			<img src="../images/melody-white.png" width="120">
+			<h1 class="logo">streamlikes</h1>
+		</div>
+		<p class="desc">You are the web's leading music tastemaker. We create radio based on your favorites.</p>
+		<a href="/auth/facebook" class="fb-login"><i data-icon="b" class="icon"></i> <span>Login with Facebook</span></a>
+	</div>
+
 {% endblock %}

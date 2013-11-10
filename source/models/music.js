@@ -6,9 +6,10 @@ var config = require('../../config');
 var services = config.services;
 var db = require('../dbconnector').db;
 
+var headers = { 'Content-Type': 'application/json', 'User-Agent': config.userAgent };
+
 exports.fetchFacebookMusic = function (facebookId, token, callback) {
-	var uri = services.facebook.apiUrl + '/' + facebookId + '/likes?limit=20&access_token=' + token;
-	var headers = { 'Content-Type': 'application/json', 'User-Agent': config.userAgent };
+	var uri = services.facebook.apiUrl + '/' + facebookId + '/likes?limit=100&access_token=' + token;
 
 	request.get({ uri: uri, headers: headers, json: true }, function (err, res, body) {
 		if (err) {
@@ -24,10 +25,9 @@ exports.fetchFacebookMusic = function (facebookId, token, callback) {
 };
 
 exports.fetchShufflerArtists = function (artists, callback) {
-	var headers = { 'Content-Type': 'application/json', 'User-Agent': config.userAgent };
 	var results = [];
 
-	async.eachSeries(artists, searchForShufllerArtist, returnTracks);
+	async.each(artists, searchForShufllerArtist, returnTracks);
 
 	function searchForShufllerArtist (artist, next) {
 		var name = diacritics.remove(artist.name);
@@ -38,8 +38,12 @@ exports.fetchShufflerArtists = function (artists, callback) {
 				return next(err);
 			}
 
-			var choice = _(body[0]).pick(['id', 'name', 'permalink', 'channel_url', 'images', 'urls']);
-			results.push(choice);
+			var artists = body[0];
+			if (!_(artists).isEmpty()) {
+				var choice = _(artists).pick(['id', 'name', 'permalink', 'channel_url', 'images', 'urls']);
+				results.push(choice);
+			}
+
 			return next(null);
 		});
 	}
