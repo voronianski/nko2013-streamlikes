@@ -2,6 +2,7 @@ var _ = require('underscore');
 var request = require('request');
 var async = require('async');
 var diacritics = require('diacritics');
+var cyrtranslit = require('translitit-cyrillic-russian-to-latin');
 var config = require('../../config');
 var services = config.services;
 var db = require('../dbconnector').db;
@@ -31,8 +32,13 @@ exports.fetchShufflerArtists = function (artists, callback) {
 
 	function searchForShufllerArtist (artist, next) {
 		var name = diacritics.remove(artist.name);
-		var uri = services.shuffler.apiUrl + '/artists?q=' + name + '&app-key=' + services.shuffler.appKey;
 
+		// transliterate cyrrilics due to shuffler api restrictions
+		if (/[^а-яA-Я]+/g.test(name)) {
+			name = cyrtranslit(name);
+		}
+
+		var uri = services.shuffler.apiUrl + '/artists?q=' + name + '&app-key=' + services.shuffler.appKey;
 		request.get({ uri: uri, headers: headers, json: true }, function (err, res, body) {
 			if (err) {
 				return next(err);
@@ -78,6 +84,6 @@ exports.fetchShufflerTracks = function (artistId, callback) {
 				results.push(doc);
 			});
 
-		return callback(null, results);
+		return callback(null, _(results).shuffle());
 	});
 };

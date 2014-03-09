@@ -14,6 +14,7 @@
 	position: absolute;
 	top: 30px;
 	left: 35px;
+	z-index: 1000;
 }
 
 .line-logo img,
@@ -138,6 +139,7 @@
 	font-weight: bold;
 	border-bottom: 1px dotted #fff;
 	padding-bottom: 5px;
+	z-index: 1000;
 	-webkit-transition: all .3s ease-in-out;
 	-moz-transition: all .3s ease-in-out;
 	-ms-transition: all .3s ease-in-out;
