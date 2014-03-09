@@ -2,7 +2,9 @@
 
 ![](http://farm4.staticflickr.com/3098/13036706995_9384f58dcc_b.jpg)
 
-Streamlikes app is somekind of a radio for recent popular tracks and mixes of your favorite bands and artists. For now it works as follows:
+**Streamlikes** app is somekind of a radio for recent popular tracks and mixes of your favorite bands and artists.
+
+For now it works as follows:
 
 1. Gets your music and bands likes from Facebook
 2. Shows available for streaming track suggestions via [Shuffler.fm](http://shuffler.fm/)
